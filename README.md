@@ -1,4 +1,4 @@
-# ublDashboard
+# User Behavior Insights Dashboard
 
 A OpenSearch Dashboards plugin
 

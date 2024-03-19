@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppMountParameters, CoreStart } from '../../../src/core/public';
 import { AppPluginStartDependencies } from './types';
-import { UblDashboardApp } from './components/app';
+import { UbiDashboardApp } from './components/app';
 
 export const renderApp = (
   { notifications, http }: CoreStart,
@@ -10,7 +10,7 @@ export const renderApp = (
   { appBasePath, element }: AppMountParameters
 ) => {
   ReactDOM.render(
-    <UblDashboardApp
+    <UbiDashboardApp
       basename={appBasePath}
       notifications={notifications}
       http={http}
