@@ -23,19 +23,19 @@ import { NavigationPublicPluginStart } from '../../../../src/plugins/navigation/
 
 import { PLUGIN_ID, PLUGIN_NAME } from '../../common';
 
-interface UblDashboardAppDeps {
+interface UbiDashboardAppDeps {
   basename: string;
   notifications: CoreStart['notifications'];
   http: CoreStart['http'];
   navigation: NavigationPublicPluginStart;
 }
 
-export const UblDashboardApp = ({
+export const UbiDashboardApp = ({
   basename,
   notifications,
   http,
   navigation,
-}: UblDashboardAppDeps) => {
+}: UbiDashboardAppDeps) => {
   // Use React hooks to manage state.
   const [logs, setLogText] = useState<string | undefined>();
   const [size, setSize] = useState('xl');
@@ -75,7 +75,7 @@ async function reactView(input) {
       
       // Use the core notifications service to display a success message.
       notifications.toasts.addSuccess(
-        i18n.translate('ublDashboard.indicesLoaded', {
+        i18n.translate('ubiDashboard.indicesLoaded', {
           defaultMessage: 'Indices loaded',
         })
       );
@@ -110,7 +110,7 @@ alert('klajshflk')	;
       
       // Use the core notifications service to display a success message.
       notifications.toasts.addSuccess(
-        i18n.translate('ublDashboard.dataUpdated', {
+        i18n.translate('ubiDashboard.dataUpdated', {
           defaultMessage: 'Data updated',
         })
       );
@@ -134,7 +134,7 @@ alert('klajshflk')	;
                 <EuiTitle size="l">
                   <h1>
                     <FormattedMessage
-                      id="ublDashboard.helloWorldText"
+                      id="ubiDashboard.helloWorldText"
                       defaultMessage="{name}"
                       values={{ name: PLUGIN_NAME }}
                     />
@@ -146,7 +146,7 @@ alert('klajshflk')	;
                   <EuiTitle>
                     <h2>
                       <FormattedMessage
-                        id="ublDashboard.congratulationsTitle"
+                        id="ubiDashboard.congratulationsTitle"
                         defaultMessage="Congratulations, you have successfully created a new OpenSearch Dashboards Plugin!"
                       />
                     </h2>
@@ -156,14 +156,14 @@ alert('klajshflk')	;
                   <EuiText>
                     <p>
                       <FormattedMessage
-                        id="ublDashboard.content"
+                        id="ubiDashboard.content"
                         defaultMessage="Look through the generated code and check out the plugin development documentation."
                       />
                     </p>
                     <EuiHorizontalRule />
                     <p>
                       <FormattedMessage
-                        id="ublDashboard.timestampText"
+                        id="ubiDashboard.timestampText"
                         defaultMessage="Latest logs: {time}"
                         values={{ time: logs ? logs : 'Unknown' }}
                       />
@@ -189,12 +189,12 @@ alert('klajshflk')	;
 //loadIndices()
 
 }
-          <EuiSelect id='ublDashboard.logIndices'
+          <EuiSelect id='ubiDashboard.logIndices'
             options={indices}
             onChange={(e) => setSize(String(e.target.value))}
           />
                       <EuiButton type="primary" size="s" onClick={onClickHandler}>
-                      <FormattedMessage id="ublDashboard.buttonText" defaultMessage="Get data" />
+                      <FormattedMessage id="ubiDashboard.buttonText" defaultMessage="Get data" />
                     </EuiButton>
                   </EuiText>
                 </EuiPageContentBody>

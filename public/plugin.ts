@@ -1,18 +1,18 @@
 import { i18n } from '@osd/i18n';
 import { AppMountParameters, CoreSetup, CoreStart, Plugin } from '../../../src/core/public';
 import {
-  UblDashboardPluginSetup,
-  UblDashboardPluginStart,
+  UbiDashboardPluginSetup,
+  UbiDashboardPluginStart,
   AppPluginStartDependencies,
 } from './types';
 import { PLUGIN_NAME } from '../common';
 
-export class UblDashboardPlugin
-  implements Plugin<UblDashboardPluginSetup, UblDashboardPluginStart> {
-  public setup(core: CoreSetup): UblDashboardPluginSetup {
+export class UbiDashboardPlugin
+  implements Plugin<UbiDashboardPluginSetup, UbiDashboardPluginStart> {
+  public setup(core: CoreSetup): UbiDashboardPluginSetup {
     // Register an application into the side navigation menu
     core.application.register({
-      id: 'ublDashboard',
+      id: 'ubiDashboard',
       title: PLUGIN_NAME,
       async mount(params: AppMountParameters) {
         // Load application bundle
@@ -27,7 +27,7 @@ export class UblDashboardPlugin
     // Return methods that should be available to other plugins
     return {
       getGreeting() {
-        return i18n.translate('ublDashboard.greetingText', {
+        return i18n.translate('ubiDashboard.greetingText', {
           defaultMessage: 'Hello from {name}!',
           values: {
             name: PLUGIN_NAME,
@@ -37,7 +37,7 @@ export class UblDashboardPlugin
     };
   }
 
-  public start(core: CoreStart): UblDashboardPluginStart {
+  public start(core: CoreStart): UbiDashboardPluginStart {
     return {};
   }
 

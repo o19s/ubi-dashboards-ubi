@@ -6,11 +6,11 @@ import {
   Logger,
 } from '../../../src/core/server';
 
-import { UblDashboardPluginSetup, UblDashboardPluginStart } from './types';
+import { UbiDashboardPluginSetup, UbiDashboardPluginStart } from './types';
 import { defineRoutes } from './routes';
 
-export class UblDashboardPlugin
-  implements Plugin<UblDashboardPluginSetup, UblDashboardPluginStart> {
+export class UbiDashboardPlugin
+  implements Plugin<UbiDashboardPluginSetup, UbiDashboardPluginStart> {
   private readonly logger: Logger;
 
   constructor(initializerContext: PluginInitializerContext) {
@@ -18,7 +18,7 @@ export class UblDashboardPlugin
   }
 
   public setup(core: CoreSetup) {
-    this.logger.debug('ublDashboard: Setup');
+    this.logger.debug('ubiDashboard: Setup');
     const router = core.http.createRouter();
 
     // Register server side APIs
@@ -28,7 +28,7 @@ export class UblDashboardPlugin
   }
 
   public start(core: CoreStart) {
-    this.logger.debug('ublDashboard: Started');
+    this.logger.debug('ubiDashboard: Started');
     return {};
   }
 

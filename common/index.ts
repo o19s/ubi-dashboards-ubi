@@ -1,2 +1,2 @@
-export const PLUGIN_ID = 'ublDashboard';
-export const PLUGIN_NAME = 'ublDashboard';
+export const PLUGIN_ID = 'ubiDashboard';
+export const PLUGIN_NAME = 'User Behavior Insights';

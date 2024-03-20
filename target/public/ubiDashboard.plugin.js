@@ -36,14 +36,14 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"ublDashboard": 0
+/******/ 		"ubiDashboard": 0
 /******/ 	};
 /******/
 /******/
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "ublDashboard.chunk." + chunkId + ".js"
+/******/ 		return __webpack_require__.p + "ubiDashboard.chunk." + chunkId + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -187,7 +187,7 @@
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/
-/******/ 	var jsonpArray = window["ublDashboard_bundle_jsonpfunction"] = window["ublDashboard_bundle_jsonpfunction"] || [];
+/******/ 	var jsonpArray = window["ubiDashboard_bundle_jsonpfunction"] = window["ubiDashboard_bundle_jsonpfunction"] || [];
 /******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
 /******/ 	jsonpArray.push = webpackJsonpCallback;
 /******/ 	jsonpArray = jsonpArray.slice();
@@ -705,14 +705,14 @@ module.exports = function (list, options) {
 
 /***/ }),
 
-/***/ "../../node_modules/val-loader/dist/cjs.js?key=ublDashboard!../../packages/osd-ui-shared-deps/public_path_module_creator.js":
+/***/ "../../node_modules/val-loader/dist/cjs.js?key=ubiDashboard!../../packages/osd-ui-shared-deps/public_path_module_creator.js":
 /*!******************************************************************************************************************************************************************************************************************************************!*\
-  !*** C:/jason/_dev/search/OpenSearch/src/OpenSearch-Dashboards/node_modules/val-loader/dist/cjs.js?key=ublDashboard!C:/jason/_dev/search/OpenSearch/src/OpenSearch-Dashboards/packages/osd-ui-shared-deps/public_path_module_creator.js ***!
+  !*** C:/jason/_dev/search/OpenSearch/src/OpenSearch-Dashboards/node_modules/val-loader/dist/cjs.js?key=ubiDashboard!C:/jason/_dev/search/OpenSearch/src/OpenSearch-Dashboards/packages/osd-ui-shared-deps/public_path_module_creator.js ***!
   \******************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__.p = window.__osdPublicPath__['ublDashboard']
+__webpack_require__.p = window.__osdPublicPath__['ubiDashboard']
 
 /***/ }),
 
@@ -725,9 +725,9 @@ __webpack_require__.p = window.__osdPublicPath__['ublDashboard']
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_val_loader_dist_cjs_js_key_ublDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/val-loader/dist/cjs.js?key=ublDashboard!../../../osd-ui-shared-deps/public_path_module_creator.js */ "../../node_modules/val-loader/dist/cjs.js?key=ublDashboard!../../packages/osd-ui-shared-deps/public_path_module_creator.js");
-/* harmony import */ var _node_modules_val_loader_dist_cjs_js_key_ublDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_val_loader_dist_cjs_js_key_ublDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0__);
-__osdBundles__.define('plugin/ublDashboard/public', __webpack_require__, /*require.resolve*/(/*! ../../../../plugins/dashboard-plugin/public */ "./public/index.ts"))
+/* harmony import */ var _node_modules_val_loader_dist_cjs_js_key_ubiDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/val-loader/dist/cjs.js?key=ubiDashboard!../../../osd-ui-shared-deps/public_path_module_creator.js */ "../../node_modules/val-loader/dist/cjs.js?key=ubiDashboard!../../packages/osd-ui-shared-deps/public_path_module_creator.js");
+/* harmony import */ var _node_modules_val_loader_dist_cjs_js_key_ubiDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_val_loader_dist_cjs_js_key_ubiDashboard_osd_ui_shared_deps_public_path_module_creator_js__WEBPACK_IMPORTED_MODULE_0__);
+__osdBundles__.define('plugin/ubiDashboard/public', __webpack_require__, /*require.resolve*/(/*! ../../../../plugins/ubi-dashboards-ubi/public */ "./public/index.ts"))
 
 /***/ }),
 
@@ -742,8 +742,8 @@ __osdBundles__.define('plugin/ublDashboard/public', __webpack_require__, /*requi
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLUGIN_ID", function() { return PLUGIN_ID; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PLUGIN_NAME", function() { return PLUGIN_NAME; });
-const PLUGIN_ID = 'ublDashboard';
-const PLUGIN_NAME = 'ublDashboard';
+const PLUGIN_ID = 'ubiDashboard';
+const PLUGIN_NAME = 'User Behavior Insights';
 
 /***/ }),
 
@@ -891,7 +891,7 @@ module.exports = content.locals || {};
 /*!*************************!*\
   !*** ./public/index.ts ***!
   \*************************/
-/*! exports provided: plugin, UblDashboardPluginSetup, UblDashboardPluginStart */
+/*! exports provided: plugin, UbiDashboardPluginSetup, UbiDashboardPluginStart */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -901,16 +901,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _index_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index_scss__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _plugin__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./plugin */ "./public/plugin.ts");
 /* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types */ "./public/types.ts");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UblDashboardPluginSetup", function() { return _types__WEBPACK_IMPORTED_MODULE_2__["UblDashboardPluginSetup"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UbiDashboardPluginSetup", function() { return _types__WEBPACK_IMPORTED_MODULE_2__["UbiDashboardPluginSetup"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UblDashboardPluginStart", function() { return _types__WEBPACK_IMPORTED_MODULE_2__["UblDashboardPluginStart"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "UbiDashboardPluginStart", function() { return _types__WEBPACK_IMPORTED_MODULE_2__["UbiDashboardPluginStart"]; });
 
 
- // This exports static code and TypeScript types,
+
+
+// This exports static code and TypeScript types,
 // as well as, OpenSearch Dashboards Platform `plugin()` initializer.
-
 function plugin() {
-  return new _plugin__WEBPACK_IMPORTED_MODULE_1__["UblDashboardPlugin"]();
+  return new _plugin__WEBPACK_IMPORTED_MODULE_1__["UbiDashboardPlugin"]();
 }
 
 
@@ -920,56 +921,51 @@ function plugin() {
 /*!**************************!*\
   !*** ./public/plugin.ts ***!
   \**************************/
-/*! exports provided: UblDashboardPlugin */
+/*! exports provided: UbiDashboardPlugin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UblDashboardPlugin", function() { return UblDashboardPlugin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UbiDashboardPlugin", function() { return UbiDashboardPlugin; });
 /* harmony import */ var _osd_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @osd/i18n */ "@osd/i18n");
 /* harmony import */ var _osd_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_osd_i18n__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common */ "./common/index.ts");
 
 
-class UblDashboardPlugin {
+class UbiDashboardPlugin {
   setup(core) {
     // Register an application into the side navigation menu
     core.application.register({
-      id: 'ublDashboard',
+      id: 'ubiDashboard',
       title: _common__WEBPACK_IMPORTED_MODULE_1__["PLUGIN_NAME"],
-
       async mount(params) {
         // Load application bundle
         const {
           renderApp
-        } = await __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./application */ "./public/application.tsx")); // Get start services as specified in opensearch_dashboards.json
-
-        const [coreStart, depsStart] = await core.getStartServices(); // Render the application
-
+        } = await __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./application */ "./public/application.tsx"));
+        // Get start services as specified in opensearch_dashboards.json
+        const [coreStart, depsStart] = await core.getStartServices();
+        // Render the application
         return renderApp(coreStart, depsStart, params);
       }
+    });
 
-    }); // Return methods that should be available to other plugins
-
+    // Return methods that should be available to other plugins
     return {
       getGreeting() {
-        return _osd_i18n__WEBPACK_IMPORTED_MODULE_0__["i18n"].translate('ublDashboard.greetingText', {
+        return _osd_i18n__WEBPACK_IMPORTED_MODULE_0__["i18n"].translate('ubiDashboard.greetingText', {
           defaultMessage: 'Hello from {name}!',
           values: {
             name: _common__WEBPACK_IMPORTED_MODULE_1__["PLUGIN_NAME"]
           }
         });
       }
-
     };
   }
-
   start(core) {
     return {};
   }
-
   stop() {}
-
 }
 
 /***/ }),
@@ -1054,4 +1050,4 @@ module.exports = __osdSharedDeps__.ReactRouterDom;
 /***/ })
 
 /******/ });
-//# sourceMappingURL=ublDashboard.plugin.js.map
+//# sourceMappingURL=ubiDashboard.plugin.js.map

@@ -1,4 +1,4 @@
-(window["ublDashboard_bundle_jsonpfunction"] = window["ublDashboard_bundle_jsonpfunction"] || []).push([[0],{
+(window["ubiDashboard_bundle_jsonpfunction"] = window["ubiDashboard_bundle_jsonpfunction"] || []).push([[0],{
 
 /***/ "./public/application.tsx":
 /*!********************************!*\
@@ -18,19 +18,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const renderApp = (_ref, _ref2, _ref3) => {
-  let {
-    notifications,
-    http
-  } = _ref;
-  let {
-    navigation
-  } = _ref2;
-  let {
-    appBasePath,
-    element
-  } = _ref3;
-  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app__WEBPACK_IMPORTED_MODULE_2__["UblDashboardApp"], {
+const renderApp = ({
+  notifications,
+  http
+}, {
+  navigation
+}, {
+  appBasePath,
+  element
+}) => {
+  react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_app__WEBPACK_IMPORTED_MODULE_2__["UbiDashboardApp"], {
     basename: appBasePath,
     notifications: notifications,
     http: http,
@@ -45,12 +42,12 @@ const renderApp = (_ref, _ref2, _ref3) => {
 /*!***********************************!*\
   !*** ./public/components/app.tsx ***!
   \***********************************/
-/*! exports provided: UblDashboardApp */
+/*! exports provided: UbiDashboardApp */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UblDashboardApp", function() { return UblDashboardApp; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UbiDashboardApp", function() { return UbiDashboardApp; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _osd_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @osd/i18n */ "@osd/i18n");
@@ -69,19 +66,18 @@ __webpack_require__.r(__webpack_exports__);
  // TODO: => from @opensearch-project/oui';
 
 
-const UblDashboardApp = _ref => {
-  let {
-    basename,
-    notifications,
-    http,
-    navigation
-  } = _ref;
+const UbiDashboardApp = ({
+  basename,
+  notifications,
+  http,
+  navigation
+}) => {
   // Use React hooks to manage state.
   const [logs, setLogText] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
   const [size, setSize] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('xl');
   const [indices, setIndices] = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
-  /**/
 
+  /**/
   async function reactView(input) {
     const computedData = await fetchRecordData(input);
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiText"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(EuiTextColor, {
@@ -90,44 +86,44 @@ const UblDashboardApp = _ref => {
       type: "cheer"
     }), " ", computedData.companyName)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Location: ", computedData.location), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Total raised amount: ", computedData.raisedAmount));
   }
-
   const loadIndices = () => {
     //alert('xx');
     // Use the core http service to make a response to the server API.
     //http.get('/api/ubl_dashboard/example').then((res) => {
     http.get('/api/ubl_dashboard/ubl_logs').then(res => {
-      let log_names = []; //alert(JSON.stringify(res.indices));
+      let log_names = [];
+      //alert(JSON.stringify(res.indices));
 
       /**/
-
       for (const idx of res.indices) {
         log_names.push({
           text: idx['log_name']
         });
       }
+      setIndices(log_names);
 
-      setIndices(log_names); // Use the core notifications service to display a success message.
-
-      notifications.toasts.addSuccess(_osd_i18n__WEBPACK_IMPORTED_MODULE_1__["i18n"].translate('ublDashboard.indicesLoaded', {
+      // Use the core notifications service to display a success message.
+      notifications.toasts.addSuccess(_osd_i18n__WEBPACK_IMPORTED_MODULE_1__["i18n"].translate('ubiDashboard.indicesLoaded', {
         defaultMessage: 'Indices loaded'
       }));
     });
   };
-
-  const handleValueChange = (name, filterValue) => {//  const previousValue = values[name];
+  const handleValueChange = (name, filterValue) => {
+    //  const previousValue = values[name];
     //  updateFilterCount(name, previousValue, filterValue);
     //  const updatedValues = { ...values };
     //  updatedValues[name] = filterValue;
     //  setValues(updatedValues);
     //  applyFilterValue(name, filterValue);
-  }; //loadIndices();
+  };
+  //loadIndices();
+
   //##################################################################
   //on document load, hook things up here
-
-
   document.addEventListener('DOMContentLoaded', function () {
     alert('klajshflk');
-  }); //##################################################################
+  });
+  //##################################################################
 
   const onClickHandler = () => {
     // Use the core http service to make a response to the server API.
@@ -135,16 +131,17 @@ const UblDashboardApp = _ref => {
     http.get('/api/ubl_dashboard/get_log').then(res => {
       //http.get('/api/ubl_dashboard/ubl_logs').then((res) => {
       //setLogText(JSON.stringify(res.indices));
-      setLogText(res.logs); // Use the core notifications service to display a success message.
+      setLogText(res.logs);
 
-      notifications.toasts.addSuccess(_osd_i18n__WEBPACK_IMPORTED_MODULE_1__["i18n"].translate('ublDashboard.dataUpdated', {
+      // Use the core notifications service to display a success message.
+      notifications.toasts.addSuccess(_osd_i18n__WEBPACK_IMPORTED_MODULE_1__["i18n"].translate('ubiDashboard.dataUpdated', {
         defaultMessage: 'Data updated'
       }));
     });
-  }; // Render the application DOM.
+  };
+
+  // Render the application DOM.
   // Note that `navigation.ui.TopNavMenu` is a stateful component exported on the `navigation` plugin's start contract.
-
-
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["BrowserRouter"], {
     basename: basename
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["I18nProvider"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(navigation.ui.TopNavMenu, {
@@ -158,25 +155,25 @@ const UblDashboardApp = _ref => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiPageHeader"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiTitle"], {
     size: "l"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["FormattedMessage"], {
-    id: "ublDashboard.helloWorldText",
+    id: "ubiDashboard.helloWorldText",
     defaultMessage: "{name}",
     values: {
       name: _common__WEBPACK_IMPORTED_MODULE_5__["PLUGIN_NAME"]
     }
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiPageContent"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiPageContentHeader"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiTitle"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["FormattedMessage"], {
-    id: "ublDashboard.congratulationsTitle",
+    id: "ubiDashboard.congratulationsTitle",
     defaultMessage: "Congratulations, you have successfully created a new OpenSearch Dashboards Plugin!"
   })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiPageContentBody"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiText"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["FormattedMessage"], {
-    id: "ublDashboard.content",
+    id: "ubiDashboard.content",
     defaultMessage: "Look through the generated code and check out the plugin development documentation."
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiHorizontalRule"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["FormattedMessage"], {
-    id: "ublDashboard.timestampText",
+    id: "ubiDashboard.timestampText",
     defaultMessage: "Latest logs: {time}",
     values: {
       time: logs ? logs : 'Unknown'
     }
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiSelect"], {
-    id: "ublDashboard.logIndices",
+    id: "ubiDashboard.logIndices",
     options: indices,
     onChange: e => setSize(String(e.target.value))
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_elastic_eui__WEBPACK_IMPORTED_MODULE_4__["EuiButton"], {
@@ -184,7 +181,7 @@ const UblDashboardApp = _ref => {
     size: "s",
     onClick: onClickHandler
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_osd_i18n_react__WEBPACK_IMPORTED_MODULE_2__["FormattedMessage"], {
-    id: "ublDashboard.buttonText",
+    id: "ubiDashboard.buttonText",
     defaultMessage: "Get data"
   }))))))))));
 };
@@ -192,4 +189,4 @@ const UblDashboardApp = _ref => {
 /***/ })
 
 }]);
-//# sourceMappingURL=ublDashboard.chunk.0.js.map
+//# sourceMappingURL=ubiDashboard.chunk.0.js.map
